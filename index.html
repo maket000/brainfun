@@ -1,0 +1,44 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>BrainF*n</title>
+    <script src="blockly/blockly_compressed.js"></script>
+    <script src="blockly/blocks_compressed.js"></script>
+    <script src="blockly/msg/js/en.js"></script>
+    <script src="blockly/javascript_compressed.js"></script>
+    <script src="blockly/blocks/brainfuck.js"></script>
+    <script src="blockly/generators/brainfuck.js"></script>
+  </head>
+  <body>
+    <button onclick="showCode()">Show code</button>
+    <div id="blockdiv" style="height: 480px; width: 600px;" dir="LTR"></div>
+    
+    <xml id="toolbox" style="display: none">
+      <block type="brack"></block>
+      <block type="pt_inc"></block>
+      <block type="pt_dec"></block>
+      <block type="bt_inc"></block>
+      <block type="bt_dec"></block>
+      <block type="bf_out"></block>
+      <block type="bf_in"></block>
+      <block type="pt_inc_c"></block>
+      <block type="pt_dec_c"></block>
+      <block type="bt_inc_c"></block>
+      <block type="bt_dec_c"></block>
+      <block type="bf_out_c"></block>
+      <block type="bf_in_c"></block>
+      
+    </xml>
+  </body>
+ 
+  <script>
+    var workspace = Blockly.inject('blockdiv',
+    {toolbox: document.getElementById('toolbox')});
+
+    function showCode() {
+        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        alert(code);
+    }
+  </script>
+</html>
