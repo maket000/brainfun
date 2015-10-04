@@ -5,9 +5,7 @@ Blockly.JavaScript['brack'] = function(block) {
 };
 
 Blockly.JavaScript['pt_inc'] = function(block) {
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  var code = '...';
-  return code;
+    return ">";
 };
 
 Blockly.JavaScript['pt_inc_c'] = function(block) {
