@@ -7,9 +7,11 @@ function incMP(ptr, inc) {
 	mp += inc;
 	
 	while (mp < 0) {
+		console.log("N");
 		mp += 30000;
 	}
 	while (mp >= 30000) {
+		console.log("M");
 		mp -= 30000;
 	}
 	
@@ -21,9 +23,11 @@ function incMem(cval, inc) {
 	val += inc;
 	
 	while (val < 0) {
+		console.log("K");
 		val += 256;
 	}
 	while (val >= 256) {
+		console.log("C");
 		val -= 256;
 	}
 	
@@ -65,6 +69,7 @@ function interp(pgm, inp) {
 	var ip = 0;                  // input pointer
 	var mem = [];                // memory array
 	var mp = 0;                  // memory pointer
+	var out = ""                 // output string, NOT ACTUALLY NEEDED
 	
 	mem[30000] = 0;
 	for (i=0; i<30000; i++) {
@@ -73,42 +78,44 @@ function interp(pgm, inp) {
 	
 	while (pp < pl) {
 		var exp = pgm.charAt(pp);
-		
 		switch (exp) {
 			case '>':  // increment memory pointer
 				mp = incMP(mp, 1);
-				move_ptr(mp);
+//				move_ptr(mp);
 			break;
 			
 			case '<':  // decrement memory pointer
 				mp = incMP(mp, -1);
-				move_ptr(mp);
+//				move_ptr(mp);
 			break;
 			
 			case '+':  // increment memory value
 				mem[mp] = incMem(mem[mp], 1);
-				change_val(mp, mem[mp]);
+//				change_val(mp, mem[mp]);
 			break;
 			
 			case '-':  // decrement memory value
 				mem[mp] = incMem(mem[mp], -1);
-				change_val(mp, mem[mp]);
+//				change_val(mp, mem[mp]);
 			break;
 			
 			case '.':  // send output character
-				put_out(String.fromCharCode(mem[mp]));
+//				put_out(String.fromCharCode(mem[mp]));
+				out += String.fromCharCode(mem[mp]);
 			break;
 			
 			case ',':  // set memory value to input character
 				mem[mp] = incMem(mem[mp], -1 * mem[mp]);
 				mem[mp] = incMem(mem[mp], getIn(inp, ip));
 				ip++;
-				change_val(mp, mem[mp]);
+//				change_val(mp, mem[mp]);
 			break;
 			
 			case '[':  // open while loop
 				if (mem[mp] != 0) {
-					sp = pp_stack.push(pp) - 1;
+//					sp = pp_stack.push(pp) - 1;
+					sp++;
+					pp_stack[sp] = pp;
 				} else {
 					pp = findBlockEnd(pgm, pp);
 				}
@@ -118,7 +125,9 @@ function interp(pgm, inp) {
 				if (mem[mp] != 0) {
 					pp = pp_stack[sp];
 				} else {
-					pp_stack.pop();
+//					pp = pp_stack.pop();
+//					pp = pp_stack[sp];
+					sp--;
 				}
 			break;
 			
@@ -126,4 +135,8 @@ function interp(pgm, inp) {
 		}
 		pp++;
 	}
+	return out;
 }
+
+
+document.getElementById("ayy").innerHTML = interp("+++++++++++>+>>>>++++++++++++++++++++++++++++++++++++++++++++>++++++++++++++++++++++++++++++++<<<<<<[>[>>>>>>+>+<<<<<<<-]>>>>>>>[<<<<<<<+>>>>>>>-]<[>++++++++++[-<-[>>+>+<<<-]>>>[<<<+>>>-]+<[>[-]<[-]]>[<<[>>>+<<<-]>>[-]]<<]>>>[>>+>+<<<-]>>>[<<<+>>>-]+<[>[-]<[-]]>[<<+>>[-]]<<<<<<<]>>>>>[++++++++++++++++++++++++++++++++++++++++++++++++.[-]]++++++++++<[->-<]>++++++++++++++++++++++++++++++++++++++++++++++++.[-]<<<<<<<<<<<<[>>>+>+<<<<-]>>>>[<<<<+>>>>-]<-[>>.>.<<<[-]]<<[>>+>+<<<-]>>>[<<<+>>>-]<<[<+>-]>[<+>-]<<<-]", "");
