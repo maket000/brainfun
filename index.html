@@ -1,18 +1,31 @@
 <!doctype HTML>
 <html>
   <head>
-    <title>BrainF*n</title>
+    <title>BrainF*n!</title>
     <script src="blockly/blockly_compressed.js"></script>
     <script src="blockly/blocks_compressed.js"></script>
     <script src="blockly/msg/js/en.js"></script>
     <script src="blockly/javascript_compressed.js"></script>
     <script src="blockly/blocks/brainfuck.js"></script>
     <script src="blockly/generators/javascript/brainfuck.js"></script>
+    <style>
+      * {
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+      }
+    </style>
   </head>
-  <body>
+  <body background="background.jpg">
+    <font color="#FF00FF">
+      <h1 bgcolor="#000000">BrainF*n</h1>
+      <h4>BrainF*ck For Kids!</h4>
+    </font>
     <button onclick="showCode()">Show code</button>
+    <label>Input:</label><input id="bf-input"></input>
+    <table id="numbers">
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
     <div id="blockdiv" style="height: 480px; width: 600px;" dir="LTR"></div>
-    
+
     <xml id="toolbox" style="display: none">
       <block type="brack"></block>
       <block type="pt_inc"></block>
@@ -38,6 +51,7 @@
     function showCode() {
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         var code = Blockly.JavaScript.workspaceToCode(workspace);
+        code = code.replace(/ /g,'');
         alert(code);
     }
   </script>

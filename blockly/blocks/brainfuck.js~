@@ -1,6 +1,6 @@
 Blockly.Blocks['brack'] = {
   init: function() {
-    this.appendStatementInput("NAME")
+    this.appendStatementInput("")
         .appendField("[");
     this.appendDummyInput()
         .appendField("]");
