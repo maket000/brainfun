@@ -7,7 +7,7 @@ Blockly.Blocks['brack'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(210);
+    this.setColour(225);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
@@ -35,6 +35,7 @@ Blockly.Blocks['pt_inc_c'] = {
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField(">");
     this.setOutput(true);
+	this.setColour(350);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
@@ -61,6 +62,7 @@ Blockly.Blocks['pt_dec_c'] = {
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("<");
     this.setOutput(true);
+	this.setColour(350);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
@@ -74,7 +76,7 @@ Blockly.Blocks['bt_inc'] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(350);
+    this.setColour(180);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
@@ -86,6 +88,7 @@ Blockly.Blocks['bt_inc_c'] = {
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("+");
     this.setOutput(true);
+	this.setColour(180);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
@@ -100,7 +103,7 @@ Blockly.Blocks['bt_dec'] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(350);
+    this.setColour(180);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
@@ -113,6 +116,7 @@ Blockly.Blocks['bt_dec_c'] = {
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("-");
     this.setOutput(true);
+	this.setColour(180);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
@@ -126,7 +130,7 @@ Blockly.Blocks['bf_out'] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(350);
+    this.setColour(90);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
@@ -139,6 +143,7 @@ Blockly.Blocks['bf_out_c'] = {
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField(".");
     this.setOutput(true);
+	this.setColour(90);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
@@ -152,7 +157,7 @@ Blockly.Blocks['bf_in'] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(350);
+    this.setColour(90);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
@@ -164,6 +169,7 @@ Blockly.Blocks['bf_in_c'] = {
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField(",");
     this.setOutput(true);
+	this.setColour(90);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
