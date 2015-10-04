@@ -8,6 +8,7 @@
     <script src="blockly/javascript_compressed.js"></script>
     <script src="blockly/blocks/brainfuck.js"></script>
     <script src="blockly/generators/javascript/brainfuck.js"></script>
+    <script src="interp.js"></script>
     <style>
       * {
         font-family: "Comic Sans MS", "Comic Sans", cursive;
@@ -19,12 +20,13 @@
       <h1 bgcolor="#000000">BrainF*n</h1>
       <h4>BrainF*ck For Kids!</h4>
     </font>
-    <button onclick="showCode()">Show code</button>
+    <button onclick="runCode()">Run code</button>
     <label>Input:</label><input id="bf-input"></input>
     <table id="numbers">
       <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     </table>
     <div id="blockdiv" style="height: 480px; width: 600px;" dir="LTR"></div>
+    <div style="float: right; background-color: #FFFFFF; height: 480px; width: 600px; border-style: solid;"><p id="bf-out"></p></div>
 
     <xml id="toolbox" style="display: none">
       <block type="brack"></block>
@@ -48,11 +50,13 @@
     var workspace = Blockly.inject('blockdiv',
     {toolbox: document.getElementById('toolbox')});
 
-    function showCode() {
+    function runCode() {
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         code = code.replace(/ /g,'');
-        alert(code);
+        input = document.getElementById("bf-input").value;
+        result = interp(code, input);
+        document.getElementById("bf-out").innerHTML = result;
     }
   </script>
 </html>
