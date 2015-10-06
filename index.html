@@ -10,23 +10,26 @@
     <script src="blockly/generators/javascript/brainfuck.js"></script>
     <script src="interp.js"></script>
     <style>
-      * {
-        font-family: "Comic Sans MS", "Comic Sans", cursive;
+      td {
+        width:9.1%;
+        align:center;
       }
     </style>
   </head>
-  <body background="background.jpg">
+  <body>
     <font color="#FF00FF">
       <h1 bgcolor="#000000">BrainF*n</h1>
-      <h4>BrainF*ck For Kids!</h4>
+      <!--<h4>BrainF*ck For Kids!</h4> -->
     </font>
-    <button onclick="runCode()">Run code</button>
+    
+    <div id="blockdiv" style="float:left; height: 532px; width: 700px;" dir="LTR"></div>
+    <button onclick="runcode()">Run code</button>
     <label>Input:</label><input id="bf-input"></input>
-    <table id="numbers">
-      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <table id="array" style="border-style:solid; float: left; width:600px">
+      <tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+      <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
     </table>
-    <div id="blockdiv" style="height: 480px; width: 600px;" dir="LTR"></div>
-    <div style="float: right; background-color: #FFFFFF; height: 480px; width: 600px; border-style: solid;"><p id="bf-out"></p></div>
+    <div style="float: left; background-color: #FFFFFF; height: 450px; width: 600px; border-style: solid;"><p id="bf-out"></p></div>
 
     <xml id="toolbox" style="display: none">
       <block type="brack"></block>
