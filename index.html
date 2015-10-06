@@ -23,10 +23,10 @@
     </font>
     
     <div id="blockdiv" style="float:left; height: 532px; width: 700px;" dir="LTR"></div>
-    <button onclick="runcode()">Run code</button>
+    <button onclick="runCode()">Run code</button>
     <label>Input:</label><input id="bf-input"></input>
-    <table id="array" style="border-style:solid; float: left; width:600px">
-      <tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+    <table id="array" border="1" style="border-color: #000000; float: left; width:600px">
+      <tr><td>29995</td><td>29996</td><td>29997</td><td>29998</td><td>29999</td><td style="background-color: #BBFFAA;">0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
       <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
     </table>
     <div style="float: left; background-color: #FFFFFF; height: 450px; width: 600px; border-style: solid;"><p id="bf-out"></p></div>
@@ -58,8 +58,7 @@
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         code = code.replace(/ /g,'');
         input = document.getElementById("bf-input").value;
-        result = interp(code, input);
-        document.getElementById("bf-out").innerHTML = result;
+        interp(code, input, 500);
     }
   </script>
 </html>
